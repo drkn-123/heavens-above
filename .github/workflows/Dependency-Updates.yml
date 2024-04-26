@@ -2,7 +2,7 @@ name: Dependency Updates
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Daily at midnight
+    - cron: '0 0 * * *'
 
 jobs:
   dependency_updates:
@@ -12,4 +12,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add steps for automated dependency updates here
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Run dependency updates
+        run: |
+          # Handled by Dependabot
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Automated dependency updates"
+          git push
