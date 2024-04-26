@@ -18,14 +18,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
       - name: Build documentation
         run: |
           sphinx-build -b html docs build
 
       - name: Deploy documentation
         run: |
-          gh-pages -d build  
+          gh-pages -d build
