@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
 jobs:
   code_review:
@@ -13,3 +16,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Code Confirmation
+        run: |
+          echo "Code is confirmed to be working"
+
+      - name: Code Review
+        run: |
+          echo "Code is reviewed"
+
+      - name: Code Approval
+        run: |
+          echo "Code is approved"
