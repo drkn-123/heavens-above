@@ -26,9 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Navigate to project directory
-      run: cd heavens-above
-
     - name: Install dependencies
       run: npm install
 
