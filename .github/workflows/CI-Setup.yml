@@ -26,8 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-    - name: Run script
+    - name: Navigate to project directory
+      run: cd heavens-above
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests and linting
       run: node run.js
