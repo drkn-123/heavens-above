@@ -36,4 +36,6 @@ jobs:
 
       - name: Deploy documentation
         run: |
+          git remote set-url origin git@github.com:drkn-123/heavens-above.git
           gh-pages -d build
+        
