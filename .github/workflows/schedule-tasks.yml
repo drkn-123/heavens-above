@@ -2,7 +2,7 @@ name: Scheduled Tasks
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Daily at midnight
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
 
 jobs:
   maintenance:
@@ -12,4 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add steps for performing maintenance tasks, data backups, etc. here
+      - name: Create log file
+        run: echo "Hello World" > weekly-log-$(date +%Y-%m-%d).txt
+
+      - name: Show log file content
+        run: cat weekly-log-$(date +%Y-%m-%d).txt
